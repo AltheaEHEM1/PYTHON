@@ -1,10 +1,22 @@
-products = {'pen': 7, 'notebook': 15, 'ruler': 10, 
-            'crayons': 35, 'paper': 25, 'bag': 350, 'pencil': 9}
+products = {}
 
 while True:
-    product = input("Enter product: ").lower()
-    if product in products:
-        price = products[product]
-        print(f"The price of {product} is {price}.")
+    product_name = input("Enter the product name (or 'done' to finish): ")
+    if product_name.lower() == 'done':
+        break
+   
+    product_price = float(input("Enter the price: "))
+    products[product_name] = product_price
+
+
+
+
+while True:
+    search_product = input("Enter a product name to search for its price (or 'done' to exit): ")
+    if search_product.lower() == 'done':
+        break
+   
+    if search_product in products:
+        print(f"The price of {search_product} is ${products[search_product]:.2f}")
     else:
-        print("Product not found. Please enter a product from the list.")
+        print(f"{search_product} is not found in the dictionary.")
